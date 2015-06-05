@@ -41,7 +41,7 @@ Subject: [PATCH] Open LTE Mi5
 +    #if-eqz v3, :cond_a
  
      :cond_8
-     const v3, 0x7f050025
+     const v3, 0x7f050026
 -- 
 1.7.9.5
 
