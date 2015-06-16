@@ -26,7 +26,6 @@ private-phone-apps := BasicDreams \
 		VisualizationWallpapers \
 		WAPPushManager \
 		DSPManager \
-		PinyinIME \
 
 private-phone-priv-apps := BackupRestoreConfirmation \
 		DefaultContainerService \
