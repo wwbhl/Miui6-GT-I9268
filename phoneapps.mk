@@ -25,7 +25,6 @@ private-phone-apps := BasicDreams \
 		UserDictionaryProvider \
 		VisualizationWallpapers \
 		WAPPushManager \
-		DSPManager \
 
 private-phone-priv-apps := BackupRestoreConfirmation \
 		DefaultContainerService \
