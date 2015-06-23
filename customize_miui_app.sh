@@ -36,7 +36,7 @@ function applyPart () {
     done
 }
 
-if [ $1 = "MiuiFramework" ];then
+if [ $1 = "miuisystem" ];then
 	cp $1/superior.xml $2/assets/device_features/
 fi
 
