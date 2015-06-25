@@ -20,7 +20,6 @@ private-phone-apps := BasicDreams \
 		PhotoPhase \
 		PhotoTable \
 		PrintSpooler \
-		SamsungServiceMode \
 		Stk \
 		UserDictionaryProvider \
 		VisualizationWallpapers \
