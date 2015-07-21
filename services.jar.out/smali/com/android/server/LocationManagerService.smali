@@ -367,6 +367,8 @@
 
     iput-object v0, p0, Lcom/android/server/LocationManagerService;->mAppOps:Landroid/app/AppOpsManager;
 
+    iput-boolean v1, p0, Lcom/android/server/LocationManagerService;->mGeoFencerEnabled:Z
+
     iget-object v0, p0, Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
 
     iget-object v1, p0, Lcom/android/server/LocationManagerService;->mReceivers:Ljava/util/HashMap;
@@ -378,10 +380,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/LocationManagerService;->mLocationPolicyService:Lcom/android/server/LocationPolicyManagerService;
-
-    .line 209
-    iput-boolean v1, p0, Lcom/android/server/LocationManagerService;->mGeoFencerEnabled:Z
-
     .line 211
     sget-boolean v0, Lcom/android/server/LocationManagerService;->D:Z
 
