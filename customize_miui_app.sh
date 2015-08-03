@@ -57,9 +57,6 @@ fi
 if [ $1 = "DeskClock" ];then
 	applyPatch $1 $2
 fi
-if [ $1 = "Backup" ];then
-	applyPatch $1 $2
-fi
 
 if [ $1 = "Updater" ];then
         applyPatch $1 $2

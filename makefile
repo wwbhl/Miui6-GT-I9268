@@ -19,7 +19,7 @@ local-modified-jars :=
 # All apks from MIUI
 local-miui-removed-apps := 
 
-local-miui-modified-apps := Settings Updater Backup MiuiHome miuisystem SecurityCenter MiuiSystemUI DeskClock DownloadProvider Music
+local-miui-modified-apps := Settings Updater MiuiHome miuisystem SecurityCenter MiuiSystemUI DeskClock DownloadProvider Music
 
 local-phone-apps := 
 
