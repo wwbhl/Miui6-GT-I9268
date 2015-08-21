@@ -1,8 +1,7 @@
 local-phone-apps = $(private-phone-apps)
 local-phone-priv-apps = $(private-phone-priv-apps)
 
-private-phone-apps := Camera2 \
-		BasicDreams \
+private-phone-apps := BasicDreams \
 		Bluetooth \
 		BluetoothExt \
 		CertInstaller \
@@ -25,6 +24,7 @@ private-phone-apps := Camera2 \
 		UserDictionaryProvider \
 		VisualizationWallpapers \
 		WAPPushManager \
+		Camera2 \
 
 private-phone-priv-apps := BackupRestoreConfirmation \
 		DefaultContainerService \
