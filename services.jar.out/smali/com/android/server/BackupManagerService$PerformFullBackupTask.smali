@@ -1996,7 +1996,7 @@
 
     and-int v25, v25, v26
 
-    if-nez v25, :cond_3
+    #if-eqz v25, :cond_3
 
     move-object/from16 v0, p0
 

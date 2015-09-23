@@ -989,6 +989,8 @@
     .end local v18    # "id":Ljava/lang/String;
     .end local v27    # "name":Ljava/lang/String;
     :cond_1
+    invoke-static/range {p1 .. p1}, Landroid/provider/MiuiSettings$System;->setNetHostName(Landroid/content/Context;)V
+
     :goto_0
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
