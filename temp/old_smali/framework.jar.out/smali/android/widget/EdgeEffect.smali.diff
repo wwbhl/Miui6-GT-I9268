@@ -1,0 +1,44 @@
+*** ./smali/android/widget/EdgeEffect.smali	2015-09-23 10:10:45.664834267 +0800
+--- /home/baohailong/patchrom/fixwifi/temp/new_smali/framework.jar.out/./smali/android/widget/EdgeEffect.smali	2015-09-23 10:12:16.290267303 +0800
+***************
+*** 94,99 ****
+--- 94,101 ----
+  
+  .field private final mInterpolator:Landroid/view/animation/Interpolator;
+  
++ .field mIsUsingMiui:Z
++ 
+  .field private final mMaxEffectHeight:I
+  
+  .field private final mMinWidth:I
+***************
+*** 238,243 ****
+--- 240,251 ----
+  
+      iput-object v1, p0, Landroid/widget/EdgeEffect;->mInterpolator:Landroid/view/animation/Interpolator;
+  
++     invoke-static {p1}, Lmiui/os/Environment;->isUsingMiui(Landroid/content/Context;)Z
++ 
++     move-result v1
++ 
++     iput-boolean v1, p0, Landroid/widget/EdgeEffect;->mIsUsingMiui:Z
++ 
+      return-void
+  .end method
+  
+***************
+*** 500,505 ****
+--- 508,520 ----
+  
+      const/4 v4, 0x0
+  
++     iget-boolean v5, p0, Landroid/widget/EdgeEffect;->mIsUsingMiui:Z
++ 
++     if-eqz v5, :cond_miui_0
++ 
++     return v4
++ 
++     :cond_miui_0
+      invoke-direct {p0}, Landroid/widget/EdgeEffect;->update()V
+  
+      iget-object v5, p0, Landroid/widget/EdgeEffect;->mGlow:Landroid/graphics/drawable/Drawable;

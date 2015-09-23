@@ -1,0 +1,27 @@
+*** ./smali/com/android/server/accounts/AccountManagerService.smali	2015-09-23 10:11:52.669912388 +0800
+--- /home/baohailong/patchrom/fixwifi/temp/new_smali/services.jar.out/./smali/com/android/server/accounts/AccountManagerService.smali	2015-09-23 10:13:19.023152349 +0800
+***************
+*** 3678,3688 ****
+  
+      iget v5, v2, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+  
+!     invoke-virtual {v3, v5, p2}, Landroid/content/pm/PackageManager;->checkSignatures(II)I
+  
+      move-result v3
+  
+!     if-nez v3, :cond_2
+  
+      :cond_1
+      const/4 v3, 0x1
+--- 3678,3688 ----
+  
+      iget v5, v2, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->uid:I
+  
+!     invoke-static {v3, p1, v5, p2}, Lmiui/content/pm/ExtraPackageManager;->isTrustedAccountSignature(Landroid/content/pm/PackageManager;Ljava/lang/String;II)Z
+  
+      move-result v3
+  
+!     if-eqz v3, :cond_2
+  
+      :cond_1
+      const/4 v3, 0x1

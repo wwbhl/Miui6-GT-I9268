@@ -1,0 +1,94 @@
+*** Configuration.smali	2015-09-23 10:11:30.269564052 +0800
+--- Configuration.smali	2015-09-23 10:12:56.094838176 +0800
+***************
+*** 1050,1055 ****
+      or-int/lit16 v0, v0, 0x1000
+  
+      :cond_12
+      return v0
+  .end method
+  
+--- 1085,1100 ----
+      or-int/lit16 v0, v0, 0x1000
+  
+      :cond_12
++     iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
++ 
++     iget-object v3, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
++ 
++     invoke-virtual {v2, v3}, Landroid/content/res/MiuiConfiguration;->diff(Landroid/content/res/MiuiConfiguration;)I
++ 
++     move-result v2
++ 
++     or-int/2addr v0, v2
++ 
+      return v0
+  .end method
+  
+***************
+*** 2068,2073 ****
+      invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+  
+      :cond_0
+      const/16 v2, 0x7d
+  
+      invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+--- 2137,2150 ----
+      invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+  
+      :cond_0
++     iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
++ 
++     invoke-virtual {v2}, Landroid/content/res/MiuiConfiguration;->toString()Ljava/lang/String;
++ 
++     move-result-object v2
++ 
++     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++ 
+      const/16 v2, 0x7d
+  
+      invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+***************
+*** 2996,3001 ****
+      iput v2, p0, Landroid/content/res/Configuration;->seq:I
+  
+      :cond_19
+      return v0
+  
+      .end local v1    # "deltaScreenLayoutDir":I
+--- 3073,3088 ----
+      iput v2, p0, Landroid/content/res/Configuration;->seq:I
+  
+      :cond_19
++     iget-object v2, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
++ 
++     iget-object v3, p1, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
++ 
++     invoke-virtual {v2, v3}, Landroid/content/res/MiuiConfiguration;->updateFrom(Landroid/content/res/MiuiConfiguration;)I
++ 
++     move-result v2
++ 
++     or-int/2addr v0, v2
++ 
+      return v0
+  
+      .end local v1    # "deltaScreenLayoutDir":I
+***************
+*** 3117,3122 ****
+  
+      invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+  
+      return-void
+  
+      :cond_0
+--- 3204,3213 ----
+  
+      invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+  
++     iget-object v0, p0, Landroid/content/res/Configuration;->extraConfig:Landroid/content/res/MiuiConfiguration;
++ 
++     invoke-virtual {v0, p1, p2}, Landroid/content/res/MiuiConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
++ 
+      return-void
+  
+      :cond_0

@@ -1,0 +1,57 @@
+*** ./smali/android/net/EthernetDataTracker.smali	2015-09-23 10:11:01.221094438 +0800
+--- /home/baohailong/patchrom/fixwifi/temp/new_smali/framework.jar.out/./smali/android/net/EthernetDataTracker.smali	2015-09-23 10:12:30.278471719 +0800
+***************
+*** 26,32 ****
+  
+  
+  # instance fields
+! .field private mCsHandler:Landroid/os/Handler;
+  
+  .field private mDefaultGatewayAddr:Ljava/util/concurrent/atomic/AtomicInteger;
+  
+--- 26,32 ----
+  
+  
+  # instance fields
+! .field protected mCsHandler:Landroid/os/Handler;
+  
+  .field private mDefaultGatewayAddr:Ljava/util/concurrent/atomic/AtomicInteger;
+  
+***************
+*** 59,65 ****
+      return-void
+  .end method
+  
+! .method private constructor <init>()V
+      .locals 5
+  
+      .prologue
+--- 59,65 ----
+      return-void
+  .end method
+  
+! .method protected constructor <init>()V
+      .locals 5
+  
+      .prologue
+***************
+*** 192,200 ****
+  
+      if-nez v0, :cond_0
+  
+!     new-instance v0, Landroid/net/EthernetDataTracker;
+  
+!     invoke-direct {v0}, Landroid/net/EthernetDataTracker;-><init>()V
+  
+      sput-object v0, Landroid/net/EthernetDataTracker;->sInstance:Landroid/net/EthernetDataTracker;
+  
+--- 192,200 ----
+  
+      if-nez v0, :cond_0
+  
+!     new-instance v0, Landroid/net/UsbShareNetStateTracker;
+  
+!     invoke-direct {v0}, Landroid/net/UsbShareNetStateTracker;-><init>()V
+  
+      sput-object v0, Landroid/net/EthernetDataTracker;->sInstance:Landroid/net/EthernetDataTracker;
+  

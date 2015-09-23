@@ -1,0 +1,21 @@
+*** ApplicationPackageManager.smali	2015-09-23 10:11:35.325643703 +0800
+--- ApplicationPackageManager.smali	2015-09-23 10:13:00.190895065 +0800
+***************
+*** 2679,2684 ****
+      move-result-object v0
+  
+      .local v0, "r":Landroid/content/res/Resources;
+      if-nez v0, :cond_0
+  
+      new-instance v1, Landroid/content/pm/PackageManager$NameNotFoundException;
+--- 2688,2697 ----
+      move-result-object v0
+  
+      .local v0, "r":Landroid/content/res/Resources;
++     iget-object v1, p1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
++ 
++     invoke-static {v0, v1}, Landroid/miui/ResourcesManager;->initMiuiResource(Landroid/content/res/Resources;Ljava/lang/String;)V
++ 
+      if-nez v0, :cond_0
+  
+      new-instance v1, Landroid/content/pm/PackageManager$NameNotFoundException;

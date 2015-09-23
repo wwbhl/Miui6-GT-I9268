@@ -1,0 +1,29 @@
+*** Window.smali	2015-09-23 10:11:06.281177739 +0800
+--- Window.smali	2015-09-23 10:12:34.702535502 +0800
+***************
+*** 1241,1251 ****
+  .end method
+  
+  .method public setFlags(II)V
+!     .locals 3
+      .param p1, "flags"    # I
+      .param p2, "mask"    # I
+  
+      .prologue
+      invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+  
+      move-result-object v0
+--- 1329,1341 ----
+  .end method
+  
+  .method public setFlags(II)V
+!     .locals 4
+      .param p1, "flags"    # I
+      .param p2, "mask"    # I
+  
+      .prologue
++     const/high16 v3, 0x4000000
++ 
+      invoke-virtual {p0}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+  
+      move-result-object v0

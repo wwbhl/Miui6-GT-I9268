@@ -1,0 +1,36 @@
+*** BackupManagerService.smali	2015-09-23 10:11:41.913746587 +0800
+--- BackupManagerService.smali	2015-09-23 10:13:07.754999242 +0800
+***************
+*** 8218,8224 ****
+  
+      const-string v2, "fullback"
+  
+!     invoke-virtual {p0, v13, v2}, Lcom/android/server/BackupManagerService;->startConfirmationUi(ILjava/lang/String;)Z
+  
+      move-result v2
+  
+--- 8219,8225 ----
+  
+      const-string v2, "fullback"
+  
+!     invoke-static {p0, v13, v2}, Lcom/android/server/BackupManagerService$Injector;->startConfirmationUi(Lcom/android/server/BackupManagerService;ILjava/lang/String;)Z
+  
+      move-result v2
+  
+***************
+*** 8298,8304 ****
+  
+      invoke-virtual {v2, v3, v4, v5}, Landroid/os/PowerManager;->userActivity(JZ)V
+  
+!     invoke-virtual {p0, v13, v1}, Lcom/android/server/BackupManagerService;->startConfirmationTimeout(ILcom/android/server/BackupManagerService$FullParams;)V
+  
+      const-string v2, "BackupManagerService"
+  
+--- 8299,8305 ----
+  
+      invoke-virtual {v2, v3, v4, v5}, Landroid/os/PowerManager;->userActivity(JZ)V
+  
+!     invoke-static {p0, v13, v1}, Lcom/android/server/BackupManagerService$Injector;->startConfirmationTimeout(Lcom/android/server/BackupManagerService;ILcom/android/server/BackupManagerService$FullParams;)V
+  
+      const-string v2, "BackupManagerService"
+  

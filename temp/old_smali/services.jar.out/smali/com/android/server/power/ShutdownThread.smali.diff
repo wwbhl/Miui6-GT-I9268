@@ -1,0 +1,21 @@
+*** ./smali/com/android/server/power/ShutdownThread.smali	2015-09-23 10:11:48.045841439 +0800
+--- /home/baohailong/patchrom/fixwifi/temp/new_smali/services.jar.out/./smali/com/android/server/power/ShutdownThread.smali	2015-09-23 10:13:14.479090903 +0800
+***************
+*** 181,187 ****
+  
+      invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
+  
+!     invoke-virtual {v1}, Landroid/app/ProgressDialog;->show()V
+  
+      sget-object v2, Lcom/android/server/power/ShutdownThread;->sInstance:Lcom/android/server/power/ShutdownThread;
+  
+--- 181,189 ----
+  
+      invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
+  
+!     sget-boolean v2, Lcom/android/server/power/ShutdownThread;->mReboot:Z
+! 
+!     invoke-static {p0, v2}, Lcom/android/server/power/MiuiShutdownThread;->showShutdownDialog(Landroid/content/Context;Z)V
+  
+      sget-object v2, Lcom/android/server/power/ShutdownThread;->sInstance:Lcom/android/server/power/ShutdownThread;
+  

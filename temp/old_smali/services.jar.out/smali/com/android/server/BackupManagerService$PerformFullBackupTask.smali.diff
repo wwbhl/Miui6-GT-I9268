@@ -1,0 +1,30 @@
+*** ./smali/com/android/server/BackupManagerService$PerformFullBackupTask.smali	2015-09-23 10:11:44.693789694 +0800
+--- /home/baohailong/patchrom/fixwifi/temp/new_smali/services.jar.out/./smali/com/android/server/BackupManagerService$PerformFullBackupTask.smali	2015-09-23 10:13:10.739040028 +0800
+***************
+*** 1411,1416 ****
+--- 1411,1418 ----
+  
+      invoke-virtual {v5}, Ljava/io/FileOutputStream;->close()V
+  
++     invoke-static {p2}, Lcom/android/server/BackupManagerService$Injector;->resetManifestFileModifiedTime(Ljava/io/File;)V
++ 
+      return-void
+  
+      .end local v5    # "outstream":Ljava/io/FileOutputStream;
+***************
+*** 1726,1732 ****
+  
+      and-int v23, v23, v24
+  
+!     if-eqz v23, :cond_3
+  
+      move-object/from16 v0, v21
+  
+--- 1728,1734 ----
+  
+      and-int v23, v23, v24
+  
+!     #if-eqz v23, :cond_3
+  
+      move-object/from16 v0, v21
+  
