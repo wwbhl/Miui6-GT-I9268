@@ -1,0 +1,5 @@
+*.zip
+.delete-zip-file-when-clean
+/out
+releasetools.pyc
+CHANGELOG-MIUI.txt
