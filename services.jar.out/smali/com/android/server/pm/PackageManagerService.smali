@@ -5712,8 +5712,6 @@
     :cond_0
     new-instance v1, Ljava/lang/SecurityException;
 
-    invoke-static/range {v35 .. v35}, Lcom/android/server/pm/PackageManagerServiceInjector;->removePackageFromSharedUser(Lcom/android/server/pm/PackageSetting;)V
-
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
