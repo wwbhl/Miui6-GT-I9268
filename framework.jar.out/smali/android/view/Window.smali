@@ -1441,11 +1441,11 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    and-int v1, p2, v3
+    and-int v1, p2, v2
 
     if-eqz v1, :cond_miui_0
 
-    and-int v1, p1, v3
+    and-int v1, p1, v2
 
     if-nez v1, :cond_miui_0
 
