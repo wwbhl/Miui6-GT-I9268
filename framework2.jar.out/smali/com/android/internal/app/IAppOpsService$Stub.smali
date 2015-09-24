@@ -692,15 +692,15 @@
     goto :goto_1
 
     :sswitch_miui_0
-    const-string v7, "com.android.internal.app.IAppOpsService"
+    const-string v8, "com.android.internal.app.IAppOpsService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v7}, Lcom/android/internal/app/IOpsCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IOpsCallback;
+    invoke-static {v8}, Lcom/android/internal/app/IOpsCallback$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IOpsCallback;
 
     move-result-object v0
 
@@ -719,9 +719,9 @@
     .end local v0    # "_arg0":Lcom/android/internal/app/IOpsCallback;
     .end local v4    # "_result":I
     :sswitch_miui_1
-    const-string v7, "com.android.internal.app.IAppOpsService"
+    const-string v8, "com.android.internal.app.IAppOpsService"
 
-    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    invoke-virtual {p2, v8}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
