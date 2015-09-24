@@ -477,7 +477,7 @@
 
 .field private mPowerKeyTriggered:Z
 
-.field private final mPowerLongPress:Ljava/lang/Runnable;
+.field private mPowerLongPress:Ljava/lang/Runnable;
 
 .field mPowerManager:Landroid/os/PowerManager;
 
@@ -5080,9 +5080,9 @@
 
     invoke-virtual/range {p0 .. p1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getExtraSystemUiVisibility(Landroid/view/WindowManagerPolicy$WindowState;)I
 
-    move-result v18
+    move-result v20
 
-    or-int p3, p3, v18
+    or-int p3, p3, v20
 
     .line 6264
     return p3
@@ -18347,6 +18347,47 @@
 
     .line 4033
     :goto_3
+    move-object/from16 v0, p2
+
+    iget v3, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/16 v4, 0x7e1
+
+    if-ne v3, v4, :cond_miui_0
+
+    move-object/from16 v0, p2
+
+    iget v3, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    and-int/lit16 v3, v3, 0x100
+
+    if-nez v3, :cond_miui_1
+
+    :cond_miui_0
+    move-object/from16 v0, p2
+
+    iget v3, v0, Landroid/view/WindowManager$LayoutParams;->type:I
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_miui_2
+
+    :cond_miui_1
+    const/4 v3, 0x0
+
+    iput v3, v14, Landroid/graphics/Rect;->top:I
+
+    iput v3, v13, Landroid/graphics/Rect;->top:I
+
+    iput v3, v12, Landroid/graphics/Rect;->top:I
+
+    iput v3, v11, Landroid/graphics/Rect;->top:I
+
+    iput v3, v10, Landroid/graphics/Rect;->top:I
+
+    iput v3, v9, Landroid/graphics/Rect;->top:I
+
+    :cond_miui_2
     and-int/lit16 v3, v5, 0x200
 
     if-eqz v3, :cond_3
@@ -23454,7 +23495,7 @@
 
     move-result v2
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/internal/policy/impl/GlobalActions;->showDialog(ZZ)V
+    invoke-virtual {v1, v0, v2}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->showDialog(ZZ)V
 
     .line 1091
     if-eqz v0, :cond_1

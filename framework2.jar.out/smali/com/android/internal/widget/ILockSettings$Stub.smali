@@ -714,6 +714,7 @@
         0xc -> :sswitch_c
         0xd -> :sswitch_d
         0xe -> :sswitch_e
+        0xf -> :sswitch_miui_0
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

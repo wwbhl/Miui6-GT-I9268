@@ -1186,6 +1186,15 @@
 
     invoke-virtual {v3, v4, v5, v6}, Lcom/android/server/pm/Settings;->addSharedUserLPw(Ljava/lang/String;II)Lcom/android/server/pm/SharedUserSetting;
 
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+
+    const/4 v4, 0x1
+
+    invoke-static {v3, v4}, Lcom/android/server/pm/MiuiPackageManagerService;->addMiuiSharedUids(Lcom/android/server/pm/Settings;Z)V
+
+
     .line 1206
     const-string v3, "appops"
 
@@ -2027,6 +2036,30 @@
     invoke-virtual {v9, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     .line 1351
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual/range {v28 .. v28}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v6, "/framework-miui-res.apk"
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v9, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -2921,6 +2954,7 @@
     .line 1513
     invoke-interface/range {v44 .. v44}, Ljava/util/Iterator;->remove()V
 
+    invoke-static/range {v43 .. v43}, Lcom/android/server/pm/PackageManagerServiceInjector;->removePackageFromSharedUser(Lcom/android/server/pm/PackageSetting;)V
     .line 1514
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -3067,6 +3101,14 @@
     invoke-direct/range {p0 .. p0}, Lcom/android/server/pm/PackageManagerService;->deleteTempPackageFiles()V
 
     .line 1538
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
+
+    move-object/from16 v0, p0
+
+    invoke-static {v0, v3}, Lcom/android/server/pm/MiuiPackageManagerService;->performPreinstallApp(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/Settings;)V
+
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mSettings:Lcom/android/server/pm/Settings;
@@ -6161,9 +6203,9 @@
 
     .line 3038
     :cond_7
-    move-object/from16 v0, p0
+    invoke-static/range {p0 .. p5}, Lcom/android/server/pm/MiuiPackageManagerService;->checkMiuiIntent(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;I)Landroid/content/pm/ResolveInfo;
 
-    iget-object v3, v0, Lcom/android/server/pm/PackageManagerService;->mResolveInfo:Landroid/content/pm/ResolveInfo;
+    move-result-object v3
 
     goto/16 :goto_0
 
@@ -14265,6 +14307,14 @@
     .line 6612
     .local v0, "allowed":Z
     :goto_0
+    iget-object v7, p2, Landroid/content/pm/PackageParser$Package;->mSignatures:[Landroid/content/pm/Signature;
+
+    invoke-static {v7}, Lmiui/content/pm/ExtraPackageManager;->isTrustedSystemSignature([Landroid/content/pm/Signature;)Z
+
+    move-result v7
+
+    or-int/2addr v0, v7
+
     if-nez v0, :cond_2
 
     iget v7, p3, Lcom/android/server/pm/BasePermission;->protectionLevel:I
@@ -21288,6 +21338,16 @@
 
     move-result v1
 
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v2}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/pm/MiuiPackageManagerService;->ignoreApk(Ljava/lang/String;)Z
+
+    move-result v1
+
     if-nez v1, :cond_1
 
     .line 3836
@@ -21424,7 +21484,7 @@
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, v58
+    move-object/from16 v2, v74
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->tryIgnorePackage(Landroid/content/pm/PackageParser$Package;Ljava/io/File;Ljava/lang/String;)Z
 
@@ -22084,12 +22144,22 @@
     .line 4633
     and-int/lit8 v3, p2, 0x40
 
+    if-eqz v3, :cond_miui_0
+
+    move/from16 v0, p3
+
+    and-int/lit16 v3, v0, 0x100
+
     if-nez v3, :cond_e
 
+    :try_start_2
+    sget-boolean v3, Landroid/os/Build;->IS_DEBUGGABLE:Z
+    if-eqz v3, :cond_e
+
+    :cond_miui_0
     .line 4639
     const/4 v3, 0x0
 
-    :try_start_2
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -28393,6 +28463,23 @@
     .line 3935
     .end local v8    # "pkg":Landroid/content/pm/PackageParser$Package;
     :cond_1
+    const-string v3, "boot scanning"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, p1
+
+    invoke-direct {v0, v8, v1, v3}, Lcom/android/server/pm/PackageManagerService;->tryIgnorePackage(Landroid/content/pm/PackageParser$Package;Ljava/io/File;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_miui_20
+
+    const/16 v3, 0x0
+
+    return-object v3
+
+    :cond_miui_20
     const/4 v7, 0x0
 
     goto :goto_0

@@ -8503,7 +8503,7 @@
 .end method
 
 .method private setScanResults()V
-    .locals 33
+    .locals 38
 
     .prologue
     .line 1946
@@ -8541,6 +8541,12 @@
 
     .line 1958
     .local v26, "sid":I
+    const/16 v30, 0x0
+
+    .local v30, "isWpsConfigured":Z
+    const/16 v31, 0x0
+
+    .local v31, "isXiaomiRouter":Z
     :cond_0
     move-object/from16 v0, p0
 
@@ -8753,6 +8759,20 @@
 
     .line 1994
     .local v14, "flagLen":I
+    const-string v32, "wps_state="
+
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/String;->length()I
+
+    move-result v32
+
+    .local v32, "wpsStateStrLength":I
+    const-string v33, "wps_device_name="
+
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/String;->length()I
+
+    move-result v33
+
+    .local v33, "wpsDeviceNameStrLength":I
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v22
@@ -9186,7 +9206,7 @@
 
     move-result v29
 
-    if-eqz v29, :cond_6
+    if-eqz v29, :cond_miui_1
 
     .line 2035
     :cond_e
@@ -9379,8 +9399,116 @@
     .restart local v19    # "len$":I
     .restart local v21    # "lines":[Ljava/lang/String;
     .restart local v22    # "now":J
-    :cond_13
+    :cond_miui_1
     :try_start_a
+    const-string v34, "wps_state="
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v34
+
+    if-eqz v34, :cond_miui_0
+
+    new-instance v35, Ljava/lang/String;
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v34
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->length()I
+
+    move-result v36
+
+    sub-int v36, v36, v32
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v34
+
+    move-object/from16 v37, v3
+    
+    move/from16 v2, v32
+
+    move/from16 v3, v36
+
+    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([BII)V
+
+    .local v35, "wpsStateStr":Ljava/lang/String;
+
+    move-object/from16 v3, v37
+
+    const-string v34, "configured"
+
+    move-object/from16 v0, v34
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v30
+
+    goto/16 :goto_5
+
+    .end local v35    # "wpsStateStr":Ljava/lang/String;
+    :cond_miui_0
+    const-string v34, "wps_device_name="
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v34
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v34
+
+    if-eqz v34, :cond_6
+
+    new-instance v35, Ljava/lang/String;
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v34
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->length()I
+
+    move-result v36
+
+    sub-int v36, v36, v33
+
+    move-object/from16 v0, v35
+
+    move-object/from16 v1, v34
+
+    move-object/from16 v37, v3
+
+    move/from16 v2, v33
+
+    move/from16 v3, v36
+
+    invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([BII)V
+
+    .local v35, "wpsDeviceNameStr":Ljava/lang/String;
+
+    move-object/from16 v3, v37
+
+    const-string v34, "XiaoMiRouter"
+
+    move-object/from16 v0, v34
+
+    move-object/from16 v1, v35
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v31
+
+    goto/16 :goto_5
+
+    .end local v35    # "wpsDeviceNameStr":Ljava/lang/String;
+    :cond_13
     monitor-exit v30
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_0
