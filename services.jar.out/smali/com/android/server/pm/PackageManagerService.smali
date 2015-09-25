@@ -28461,6 +28461,14 @@
     .line 3935
     .end local v8    # "pkg":Landroid/content/pm/PackageParser$Package;
     :cond_1
+
+    const/4 v7, 0x0
+
+    goto :goto_0
+
+    .line 3943
+    .restart local v8    # "pkg":Landroid/content/pm/PackageParser$Package;
+    :cond_2
     const-string v3, "boot scanning"
 
     move-object/from16 v0, p0
@@ -28478,13 +28486,7 @@
     return-object v3
 
     :cond_miui_20
-    const/4 v7, 0x0
 
-    goto :goto_0
-
-    .line 3943
-    .restart local v8    # "pkg":Landroid/content/pm/PackageParser$Package;
-    :cond_2
     const/4 v7, 0x0
 
     .line 3946
@@ -31386,23 +31388,6 @@
     return v7
 
     :cond_1
-    const-string v3, "boot scanning"
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    invoke-direct {v0, v6, v1, v3}, Lcom/android/server/pm/PackageManagerService;->tryIgnorePackage(Landroid/content/pm/PackageParser$Package;Ljava/io/File;Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_miui_20
-
-    const/16 v3, 0x0
-
-    return-object v3
-
-    :cond_miui_20
     const/4 v5, 0x0
 
     .local v5, "zfile":Ljava/util/zip/ZipFile;
