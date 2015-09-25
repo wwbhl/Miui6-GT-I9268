@@ -3821,7 +3821,7 @@
 
     iget-byte v4, p0, Lcom/android/internal/widget/LockPatternView;->mPatternSize:B
 
-    invoke-virtual {v2, v3, v4}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;B)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v2
 
