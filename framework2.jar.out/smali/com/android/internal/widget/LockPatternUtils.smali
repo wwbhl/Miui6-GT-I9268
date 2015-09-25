@@ -4853,6 +4853,103 @@
     return-void
 .end method
 
+.method public static stringToPattern(Ljava/lang/String;)Ljava/util/List;
+    .locals 2
+    .param p0, "string"    # Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/internal/widget/LockPatternView$Cell;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 783
+    invoke-static {}, Lcom/android/internal/widget/LockPatternUtils;->getLockPatternSize()B
+
+    move-result v0
+
+    .line 784
+    .local v0, "size":B
+    invoke-static {p0, v0}, Lcom/android/internal/widget/LockPatternUtils;->stringToPattern(Ljava/lang/String;B)Ljava/util/List;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public stringToPattern(Ljava/lang/String;B)Ljava/util/List;
+    .locals 6
+    .param p1, "string"    # Ljava/lang/String;
+    .param p2, "size"    # B
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "B)",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/internal/widget/LockPatternView$Cell;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 794
+    invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
+
+    move-result-object v3
+
+    .line 795
+    .local v3, "result":Ljava/util/List;, "Ljava/util/List<Lcom/android/internal/widget/LockPatternView$Cell;>;"
+    invoke-static {p2}, Lcom/android/internal/widget/LockPatternView$Cell;->updateSize(B)V
+
+    .line 797
+    invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v1
+
+    .line 798
+    .local v1, "bytes":[B
+    const/4 v2, 0x0
+
+    .local v2, "i":I
+    :goto_0
+    array-length v4, v1
+
+    if-ge v2, v4, :cond_0
+
+    .line 799
+    aget-byte v0, v1, v2
+
+    .line 800
+    .local v0, "b":B
+    div-int v4, v0, p2
+
+    rem-int v5, v0, p2
+
+    invoke-static {v4, v5, p2}, Lcom/android/internal/widget/LockPatternView$Cell;->of(IIB)Lcom/android/internal/widget/LockPatternView$Cell;
+
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 798
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    .line 802
+    .end local v0    # "b":B
+    :cond_0
+    return-object v3
+.end method
+
 .method public updateEmergencyCallButtonState(Landroid/widget/Button;IZZ)V
     .locals 5
     .param p1, "button"    # Landroid/widget/Button;
