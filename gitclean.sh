@@ -1,0 +1,1 @@
+ git rm -rf  android.policy.jar.out/dist android.policy.jar.out/build framework.jar.out/dist framework.jar.out/build/ framework2.jar.out/dist framework2.jar.out/build/ framework-res/build/ framework-res/dist/ telephony-common.jar.out/dist/ telephony-common.jar.out/build/ services.jar.out/build/ services.jar.out/dist/ android.policy.jar.out/dist android.policy.jar.out/build
