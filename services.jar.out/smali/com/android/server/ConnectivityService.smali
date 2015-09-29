@@ -3118,7 +3118,7 @@
 
     .prologue
     .line 174
-    invoke-direct {p0, p1, p2}, Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;ZI)I
 
     move-result v0
 
