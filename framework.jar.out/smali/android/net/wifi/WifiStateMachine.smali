@@ -9423,7 +9423,7 @@
 
     move-result v38
 
-    sub-int v38, v38, v32
+    sub-int v38, v38, v34
 
     move-object/from16 v0, v37
 
@@ -9431,13 +9431,13 @@
 
     move-object/from16 v39, v3
     
-    move/from16 v2, v32
+    move/from16 v2, v34
 
     move/from16 v3, v38
 
     invoke-direct {v0, v1, v2, v3}, Ljava/lang/String;-><init>([BII)V
 
-    .local v35, "wpsStateStr":Ljava/lang/String;
+    .local v37, "wpsStateStr":Ljava/lang/String;
 
     move-object/from16 v3, v39
 
