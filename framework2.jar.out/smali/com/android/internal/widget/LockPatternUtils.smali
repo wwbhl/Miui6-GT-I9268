@@ -3290,7 +3290,7 @@
 
     move-result v7
 
-    invoke-virtual {p0}, Lcom/android/internal/widget/LockPatternUtils;->getLockPatternSize()B
+    invoke-interface {p0}, Lcom/android/internal/widget/LockPatternUtils;->getLockPatternSize()B
 
     move-result v8
 
