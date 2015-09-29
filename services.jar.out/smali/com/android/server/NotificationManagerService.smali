@@ -5023,7 +5023,7 @@
     :cond_5
     iget-boolean v8, p0, Lcom/android/server/NotificationManagerService;->mInCall:Z
 
-    if-nez v8, :cond_1
+    if-nez v8, :cond_6
 
     iget-boolean v8, p0, Lcom/android/server/NotificationManagerService;->mScreenOn:Z
 
@@ -5033,7 +5033,7 @@
 
     iget-object v9, p0, Lcom/android/server/NotificationManagerService;->mLedNotification:Lcom/android/server/NotificationManagerService$NotificationRecord;
 
-    iget-object v8, v8, Lcom/android/server/NotificationManagerService$NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
+    iget-object v9, v9, Lcom/android/server/NotificationManagerService$NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
 
     const-string v10, "_led"
 
