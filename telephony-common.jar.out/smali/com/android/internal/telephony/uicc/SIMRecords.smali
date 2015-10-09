@@ -8900,9 +8900,9 @@
 
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    const-string v1, "gsm.apn.sim.operator.numeric"
+    #const-string v1, "gsm.apn.sim.operator.numeric"
 
-    invoke-direct {p0, v1, v0}, Lcom/android/internal/telephony/uicc/SIMRecords;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
+    #invoke-direct {p0, v1, v0}, Lcom/android/internal/telephony/uicc/SIMRecords;->setSystemProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
     return-void
