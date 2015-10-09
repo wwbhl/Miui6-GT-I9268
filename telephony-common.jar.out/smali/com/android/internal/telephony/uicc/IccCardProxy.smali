@@ -2812,6 +2812,18 @@
     throw v1
 .end method
 
+.method public registerForNetworkLocked(Landroid/os/Handler;ILjava/lang/Object;)V
+    .locals 0
+    .param p1, "h"    # Landroid/os/Handler;
+    .param p2, "what"    # I
+    .param p3, "obj"    # Ljava/lang/Object;
+
+    .prologue
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->registerForPersoLocked(Landroid/os/Handler;ILjava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public registerForPersoLocked(Landroid/os/Handler;ILjava/lang/Object;)V
     .locals 6
     .param p1, "h"    # Landroid/os/Handler;
