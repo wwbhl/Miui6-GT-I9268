@@ -3110,7 +3110,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
+.method static synthetic access$400(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;ZI)I
     .locals 1
     .param p0, "x0"    # Lcom/android/server/ConnectivityService;
     .param p1, "x1"    # Lcom/android/server/ConnectivityService$FeatureUser;
