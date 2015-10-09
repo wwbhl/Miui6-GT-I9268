@@ -9295,9 +9295,9 @@
 
     .line 2054
     :goto_8
-    move/from16 v0, v32
+    #move/from16 v0, v32
 
-    iput-boolean v0, v2, Landroid/net/wifi/ScanResult;->isWpsConfigured:Z
+    #iput-boolean v0, v2, Landroid/net/wifi/ScanResult;->isWpsConfigured:Z
 
     move/from16 v0, v33
 
