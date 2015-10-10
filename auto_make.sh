@@ -33,7 +33,7 @@ echo "------------------"
 echo "    make ota?     "
 echo "------------------"
 read
-../tools/releasetools/ota_from_target_files -k ../build/security/testkey -i $LAST_TARGET-target.zip out/target_files.zip OTA-$LAST_TARGET-$BUILD_NUMBER.zip
+../tools/releasetools/ota_from_target_files -k ../build/security/testkey -i $LAST_TARGET-target.zip out/target_files.zip OTA-$LAST_TARGET-$BUILD_NUMBER-i9268-wwbhl.zip
 echo "******************"
 echo "*Copy  Target.zip*"
 echo "******************"
